@@ -1,0 +1,134 @@
+MATEUSZ CZARNECKI
+FILIP KWIATKOWSKI
+ALEKSANDRA ROSTKOWSKA
+
+SPECYFIKACJA BAZY DANYCH “FAM”
+
+Baza danych operuje na pliku tekstowym "dane.txt", na strukturach zawierających z kolejno:
+1. Imię
+2. Nazwisko
+3. Miasto
+4. Ulica
+5. Numer domu
+6. Płeć
+7. Wiek
+8. Pesel
+
+Każda dana musi składać się z dokładnie jednego ciągu znaków, nie oddzielonego spacjami.
+Zapisane kolejno dane w pliku "dane.txt" oddzielone są spacjami.
+Program w całości sterowany jest za pomocą wpisywania liczb.
+
+Funkcje:
+Po otwarciu, program wywołuje funkcję start(), która przekierowuje nas do głównego MENU.
+
+Krótkie opisy opcji menu:
+W przypadku naciśnięcia jakiegokolwiek przycisku oprócz wymienionych niżej, program poprosi o ponowny wybór.
+0 / ESC. Kończy działanie funkcji
+1.Wyświetla całą bazę danych.
+
+2.Umożliwia dodanie osoby do bazy.
+Program każe nam podawać kolejne dane wprowadzanej osoby.
+Program sprawdza poprawność wprowadzanych danych: 
+
+Imie/nazwisko/miasto/ulica: 
+Wprowadzona dana musi mieć co najmniej 3 znaki i rozpoczynać się wielką literą. W przypadku podania nieprawidłowych danych, program będzie kazał ponownie je wpisać. (Jeżeli wprowadzimy źle np. miasto, program zapamięta wcześniej wpisane dane i każe nam wprowadzić poprawnie jedynie miasto.)
+
+Płeć: 
+Należy wpisać pojedynczy znak. Program sprawdza, czy znak jest równy: M,m,K,k. Jeżeli nie,  każe wpisać poprawną płeć. Nie można wpisać więcej znaków. (Zapomnieliśmy ze powinniśmy użyć tu stringa).
+
+Numer domu, wiek: 
+Program sprawdza, czy podana została liczba, jeżeli nie, każe wpisać wiek poprawnie.
+Wpisana liczba musi być większa od 0 i mieścić się w pewnym zakresie., inaczej program każe wpisać wiek poprawnie.
+
+Pesel: Program w całości sprawdza poprawność pesela, w tym czy zgadza się on z wiekiem wpisanym wcześniej.
+
+Przykładowe pesele, żeby wywoływać błędy przy wprowadzaniu
+063421- zła liczba cyfr
+44423594365- zła liczba miesiąca
+75145885624- zła liczba dnia miesiąca
+75141185624- zła cyfra kontrolna
+75141185628- nie ma takiego miesiąca
+75022985628- Ten miesiąc nie ma tak wiele dni
+75020085627- miesiąc nie może mieć 0 dni
+02070803628 i płeć=mężczyzna- Cyfra płci jest błędna.
+02070803628, płeć=kobieta i wiek=18-Wprowadzony wiek nie zgadza się z peselem.
+
+
+3.Umożliwia wyszukanie, edycję i usunięcie wybranej osoby.
+Program umożliwia wyszukanie osoby po wybranej danej.
+Wpisane dane sprawdzane są w ten sam sposób co w punkcie 2.
+Po wpisaniu danej, program wyszukuje osoby.
+W przypadku nieznalezienia wyświetlony zostaje komunikat i możliwość powrotu do MENU.
+Po wyszukaniu, mamy możliwość edycji/usunięcia osoby lub powrotu do MENU. W przypadku wybrania czegokolwiek innego, zostajemy przeniesieni do MENU.
+
+Edycja:
+Wybieramy osobę, którą chcemy edytować z listy. W przypadku wpisania złego numeru/liter, program komunikuje nam błąd i  przenosi nas do MENU.
+
+Następnie ukazuje nam się mini menu, pytające, którą daną chcemy edytować. W przypadku błędnego wyboru/wpisania liter, funkcja edycji rozpoczyna się od nowa.
+
+Przy wpisywaniu nowych danych program sprawdza je w ten sam sposób co w punkcie 2, za wyjątkiem sprawdzania poprawności pesela, tak aby zgadzał się z wiekiem osoby oraz jej płcią. Poza tym, pesel sprawdzany jest tak samo i wyświetla odpowiednie komunikaty w przypadku wpisania go nieodpowiednio.
+
+Po zakończonej edycji, możemy ponownie edytować, lub wrócić do MENU. W przypadku wybrania czegoś innego/ wpisania liter, program przekieruje nas do MENU
+
+Usuwanie: 
+Wpisujemy numer osoby z listy, którą chcemy usunąć. W przypadku nieprawidłowego numeru, lub wpisania litery, program kieruje nas do MENU.
+Po wpisaniu prawidłowego numeru, osoba zostaje usunięta z bazy danych.
+
+
+
+
+4.Umożliwia zapisanie danych w pliku, bądź wyczyszczenie pliku z danych.
+Wybieramy czy chcemy zapisać dane w pliku, czy je wyczyścić. W przypadku wybrania czegoś innego niż “1”, bądź “2” program prosi nas o podanie poprawnej cyfry.
+
+Zapisywanie:
+W przypadku wybrania zapisywania, jesteśmy pytani o potwierdzenie. Jeśli wybierzemy “1”, program zapisze się pod nazwą dane.txt, a my będziemy musieli nacisnąć dowolny przycisk, aby wrócić do menu. Jeśli wybierzemy “2”, program wróci do menu.
+
+Usuwanie:
+W przypadku wybrania usuwani, również jesteśmy pytani o potwierdzenie. Jeśli wybierzemy “1”, program wyczyści plik o nazwie dane.txt, a my będziemy musieli nacisnąć dowolny przycisk, aby wrócić do menu. Jeśli wybierzemy “2”, program wróci do menu.
+
+W obu przypadkach jeśli będziemy chcieli nacisnąć inny przycisk, zostaniemy poproszeni o naciśnięcie właściwego.
+
+5.Wyświetla wybrane statystyki, a także wyświetla najmłodszą i najstarszą osobę z miasta wybranego przez użytkownika.
+
+W przypadku, gdy w wybranym mieście jest tylko jedna osoba, program to uwzględni.
+W przypadku wpisania miasta, którego nie ma w bazie, bądź wpisania cyfr, znaków itp. program wraca do menu
+
+6.Umożliwia sortowanie danych, a następnie je wyświetla.
+
+Program daje wybór sortowania przez nazwisko(alfabetycznie), imię(alfabetycznie), wiek (rosnąco/malejąco) lub po płci (kobiety/mężczyźni najpierw).
+Każdy nieprawidłowy wybór lub wpisanie litery powoduje wywołanie komunikatu oraz ponowne wywołanie sortowania.
+Po prawidłowym zatwierdzeniu wyświetla się komunikat oraz lista osób, według odpowiedniej kolejności.
+
+7.Umożliwia archiwizowanie pliku pod nazwą wpisaną przez użytkownika
+
+Jesteśmy pytani o potwierdzenie. Jeśli wybierzemy “1”, program zapyta się nas o nazwę pod jaką chcemy go zapisać. Oprócz wskazówki zawartej w programie (“nazwa musi konczyc sie rozszerzeniem. Przykładowe rozszerzenia to .txt, .doc, .docx; W przypadku niedopisania rozszerzenia archiwizacja i tak się powiedzie, lecz nie będzie można odczytać pliku”
+), możemy dodać, że nazwa nie może zaczynać się od cyfry, lecz może zawierać spacje. Po pomyślnej archiwizacji jesteśmy proszeni o naciśnięcie dowolnego przycisku, aby wrócić do menu. Jeśli wybierzemy “2”, program wróci do menu. W przypadku naciśnięcia jakiegokolwiek innego klawisza, program wraca do Menu.
+
+
+
+
+CZEGO BAZA NIE ROBI
+
+Nie obsługuje polskich znaków.
+Nie obsługuje peseli ludzi, którzy urodzą się w XXII i w XXIII wieku.
+Program, w przypadku identycznych danych do sortowania, nie sortuje drugorzędnie po innej danej.
+
+
+
+INFORMACJE
+
+Po wybraniu 2, 5, a także podczas niektórych opcji wyświetlających się po wybraniu 3, nie ma możliwości ich opuszczenia przed uprzednim wpisaniem danych/ wybraniem miasta (jedyną opcją jest zamknięcie okna programu). W innych przypadkach naciśnięcie ESC zamyka program.
+
+Po wybraniu 7, a następnie 1.TAK nazwa pliku oprócz komunikatu “nazwa musi konczyc sie rozszerzeniem. Przykładowe rozszerzenia to .txt, .doc, .docx W przypadku niedopisania rozszerzenia archiwizacja i tak się powiedzie, lecz nie bedzie mozna odczytac pliku”, ważne jest to, że nazwa pliku nie może zaczynać się od cyfry, ale za to może mieć spacje.
+
+Jeśli w momencie wczytywania użytkownik wciśnie jakiś klawisz zostanie on zarejestrowany po wczytaniu się do końca. Jeśli przycisk ten odpowiada za jakąś funkcje, funkcja ta włączy się
+
+Opcji nie trzeba zatwierdzać enterem, wyjątkiem są opcje wyboru edycji/usuwania oraz wybieranie osoby z listy.
+
+
+BŁĘDY
+
+Czasami plik archiwizuje się samoczynnie bez wpisania nazwy.
+Przy wpisywaniu/edycji płci należy wpisać pojedynczy znak, inaczej program może zadziałać w sposób niepożądany. 
+Nie można klikać prawym przyciskiem myszy na program, ponieważ zaczyna się psuć.
+
